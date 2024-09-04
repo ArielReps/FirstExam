@@ -1,4 +1,4 @@
-const militaryUnit = {
+let militaryUnit = {
   name: "1st Infantry Division",
   location: "Fort Bragg, North Carolina, USA",
   establishmentDate: "1941-06-01",
@@ -137,13 +137,16 @@ const militaryUnit = {
 };
 
 //Mission 1: Get the name, rank and phone number of the chief of staff.
-console.log(
-  `Chief of staff ${militaryUnit.commandStructure.chiefOfStaff.rank} ${militaryUnit.commandStructure.chiefOfStaff.name} \n PN: ${militaryUnit.commandStructure.chiefOfStaff.contact.phone}`
+const Mission1 = (militaryunit) =>{
+return (
+  `Chief of staff ${militaryunit.commandStructure.chiefOfStaff.rank} ${militaryunit.commandStructure.chiefOfStaff.name} \n PN: ${militaryunit.commandStructure.chiefOfStaff.contact.phone}`
 );
+}
 
 //Mission 2: Get the ammount of soldiers the division have.
-console.log(`The division contains ${militaryUnit.personnel.length} soldiers`);
-
+const Mission2 = (militaryunit) =>{
+return(`The division contains ${militaryunit.personnel.length} soldiers`);
+}
 //Mission 3: Make a function which Adds the current deployment to history and change it to the following object:
 const GivenObjectAsNewDelpoyment = {
   location: "Israel",
@@ -151,16 +154,16 @@ const GivenObjectAsNewDelpoyment = {
   startDate: "2024-09-05",
   estimatedEndDate: "2025-03-05",
 };
-const NewDeployment = (newdeployment) => {
-    militaryUnit.history.push({
-        eventDate: militaryUnit.currentDeployment.startDate,
-        eventDescription: militaryUnit.currentDeployment.mission + " In " + militaryUnit.currentDeployment.location
+const Mission3 = (newdeployment, militaryunit) => {
+    militaryunit.history.push({
+        eventDate: militaryunit.currentDeployment.estimatedEndDate,
+        eventDescription: militaryunit.currentDeployment.mission + " In " + militaryunit.currentDeployment.location
       });
-      militaryUnit.currentDeployment = newdeployment;
-      console.log(militaryUnit)
+      militaryunit.currentDeployment = newdeployment;
+      return militaryunit
 }
 
-NewDeployment(GivenObjectAsNewDelpoyment)
+militaryUnit = Mission3(GivenObjectAsNewDelpoyment, militaryUnit)
 
 //Mission 4: Make a function which adds a weapon to firearm, ** if the weapon already exists and it's status is the same add to quantity
 const GivenObjectAsFirearm =   {
@@ -168,9 +171,9 @@ const GivenObjectAsFirearm =   {
     quantity: 300,
     status: "Operational",
   }
-  const AddFirearm = (firearm) =>{
+  const Mission4 = (firearm, militaryunit) =>{
     let isExists = false;
-   militaryUnit.equipment.firearms.forEach(element => {
+   militaryunit.equipment.firearms.forEach(element => {
     if(element.status == firearm.status && element.type == firearm.type)
     {
         element.quantity += firearm.quantity;
@@ -179,14 +182,22 @@ const GivenObjectAsFirearm =   {
    });
    if(!isExists)
    {
-    militaryUnit.equipment.firearms.push(firearm);
+    militaryunit.equipment.firearms.push(firearm);
    }
-   console.log(militaryUnit.equipment.firearms)
+   return(militaryunit)
   }
-  AddFirearm(GivenObjectAsFirearm);
-  AddFirearm(GivenObjectAsFirearm);
-//Mission 5: Using reduce,make a function which gets the length of all the training programs together
-const GetLengthOfTraining = () =>{
-    return militaryUnit.trainingPrograms.reduce((accumulator, currentvalue) => accumulator+currentvalue.duration, 0)
+  militaryUnit = Mission4(GivenObjectAsFirearm, militaryUnit);
+  militaryUnit =Mission4(GivenObjectAsFirearm, militaryUnit);
+//Mission 5: make a function which gets the length of all the training programs together
+const Mission5 = (militaryunit) =>{
+    return militaryunit.trainingPrograms.reduce((accumulator, currentvalue) => accumulator+currentvalue.duration, 0)
 }
-console.log("The length of the training are "+GetLengthOfTraining() + " weeks")
+console.log("The length of the training are "+Mission5(militaryUnit) + " weeks")
+
+module.exports = {
+    Mission1,
+    Mission2,
+    Mission3,
+    Mission4,
+    Mission5
+}
