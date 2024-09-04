@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tactical Shooting - Basic Skills</title>
+    <link rel="stylesheet" href="innerpagestyle.css">
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const fullname = document.getElementById('firstname').value + " " + document.getElementById('lastname').value;
+            const rank = document.getElementById('rank').value;
+            const activity = "Tactical Shooting - Basic Skills";
+            alert(`${rank} ${fullname} signed for - ${activity}`);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#trainingList">Back to Schedule</a></li>
+            </ul>
+        </nav>
+        <h1 class="headline">Tactical Shooting - Basic Skills</h1>
+    </header>
+
+    <main>
+        <section class="training-details">
+            <h2>Training Details</h2>
+            <p><strong>Date:</strong> 2024-09-10</p>
+            <p><strong>Instructor:</strong> Lt. Smith</p>
+            <p><strong>Description:</strong> This session focuses on basic shooting skills including stance, aiming, and trigger control. Essential for improving accuracy and efficiency in the field.</p>
+            <p><strong>Duration:</strong> 2 hours</p>
+            <p><strong>Equipment:</strong> Standard issue firearm, ammunition</p>
+        </section>
+
+        <section class="signup-form">
+            <h2>Sign Up for Tactical Shooting</h2>
+            <form action="#" method="POST" onsubmit="handleFormSubmit(event)">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required>
+
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" required>
+
+                <label for="id">ID Number:</label>
+                <input type="number" id="id" name="id" required>
+
+                <label for="rank">Rank:</label>
+                <select id="rank" name="rank" required>
+                    <option value="Private">Private</option>
+                    <option value="Corporal">Corporal</option>
+                    <option value="Sergeant">Sergeant</option>
+                    <option value="Lieutenant">Lieutenant</option>
+                    <option value="Captain">Captain</option>
+                </select>
+
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female" required> Female</label>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Army Training Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>

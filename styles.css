@@ -1,0 +1,118 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #004d00;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #003300;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #002200;
+    border-radius: 5px;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+.intro, .filter, .schedule {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter label {
+    font-size: 1.1em;
+}
+
+#trainingList {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#trainingList li {
+    background-color: #e6e6e6;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+#trainingList li:hover {
+    background-color: #cccccc;
+}
+
+.training-date {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.training-description {
+    margin: 0;
+}
+
+footer {
+    background-color: #004d00;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Additional styling */
+.instructor {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-style: italic;
+    color: #555;
+}
+
+.training-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.training-type.physical { background-color: #ff9999; }
+.training-type.tactical { background-color: #99ccff; }
+.training-type.technical { background-color: #ffff99; }
+

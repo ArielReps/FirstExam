@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat First Aid</title>
+    <link rel="stylesheet" href="innerpagestyle.css">
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const fullname = document.getElementById('firstname').value + " " + document.getElementById('lastname').value;
+            const rank = document.getElementById('rank').value;
+            const activity = "Combat First Aid";
+            alert(`${rank} ${fullname} signed for - ${activity}`);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#trainingList">Back to Schedule</a></li>
+            </ul>
+        </nav>
+        <h1 class="headline">Combat First Aid</h1>
+    </header>
+
+    <main>
+        <section class="training-details">
+            <h2>Training Details</h2>
+            <p><strong>Date:</strong> 2024-09-20</p>
+            <p><strong>Instructor:</strong> Capt. Lee</p>
+            <p><strong>Description:</strong> This training covers essential first aid skills for combat situations, including treating wounds, performing CPR, and handling trauma. Crucial for ensuring the safety and well-being of soldiers in the field.</p>
+            <p><strong>Duration:</strong> 2 hours</p>
+            <p><strong>Equipment:</strong> First aid kit, CPR manikin</p>
+        </section>
+
+        <section class="signup-form">
+            <h2>Sign Up for Combat First Aid</h2>
+            <form action="#" method="POST" onsubmit="handleFormSubmit(event)">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required>
+
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" required>
+
+                <label for="id">ID Number:</label>
+                <input type="number" id="id" name="id" required>
+
+                <label for="rank">Rank:</label>
+                <select id="rank" name="rank" required>
+                    <option value="Private">Private</option>
+                    <option value="Corporal">Corporal</option>
+                    <option value="Sergeant">Sergeant</option>
+                    <option value="Lieutenant">Lieutenant</option>
+                    <option value="Captain">Captain</option>
+                </select>
+
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female" required> Female</label>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Army Training Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
